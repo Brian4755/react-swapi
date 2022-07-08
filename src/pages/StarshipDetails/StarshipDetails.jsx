@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { useLocation } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { getDetails } from "../../services/sw-api";
 
 const StarshipDetails = () => {
   const [starshipDetails, setStarshipDetails] = useState({})
   const location = useLocation()
-  const [details, setDetails] = useState(false)
+  const navigate = useNavigate()
   const handleClick = () => {
-    setDetails(!details)
+    let path = '/'
+    navigate(path)
   }
 
   useEffect(() => {
